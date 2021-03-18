@@ -1,19 +1,43 @@
 //start with an individual array sets such as all caps and lowercase and characters then concat them using .concat
 
-let upperSelect = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let upperSelection = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-let lowerSelect = ["a", "b", "v", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let lowerSelection = ["a", "b", "v", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-let numberSelect = [ 0,1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+let numberSelection = [ 0,1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
-let specialCharSelect = ["," , "!", "#","$", "%", "&" "*" ,   "+", "-" , ".", "/", ":", ";" , "<" , "=", "?" , "@","^","_" ,"~"]
+let specialCharSelection = ["," , "!", "#","$", "%", "&" "*" ,   "+", "-" , ".", "/", ":", ";" , "<" , "=", "?" , "@","^","_" ,"~"]
+// will need to concat the above list into a new variable 
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+//creating the generate password function
+function generatePassword {
+
+  passwordLength = prompt("Please choose a number from 8 to 128 for your password character length");
+
+if( isNaN(passwordLength) || (passwordLength < 8) || (passwordLength > 128)) {
+
+  alert("Try again");
+  return;
+};
+let upperChoice = confirm("Would you like uppercase letters in your password? ");
+
+let lowerChoice = confirm("Would you like lowercase letters in your password? ");
+
+let numberChoice = confirm("Would you like numbers in your password? ");
+
+let specialChoice = confirm("Would you like special characters in your password? ");
+
+}
+
+
+
+
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generatePassword(); // calls the generatePassword function
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
