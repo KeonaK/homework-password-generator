@@ -27,7 +27,7 @@ if( isNaN(passwordLength) || (passwordLength < 8) || (passwordLength > 128)) {
 
 
 let upperChoice = confirm("Would you like uppercase letters in your password? ");
-if (!upperChoice) {
+if (!upperChoice) { // sets a return for the cancel button 
   return;
 }
 
@@ -46,8 +46,20 @@ if (!specialChoice) {
   return;
 }
 
+//concats the individual arrays to make a new array that will have all available charaters in one array
+if (upperChoice){
+  currentUserArray = currentUserArray.concat(upperSelection);
+}
+if (lowerChoice){
+  currentUserArray = currentUserArray.concat(owerSelection);
+}
+if (numberChoice){
+  currentUserArray = currentUserArray.concat(numberSelection);
+}
+if (specialChoice){
+  currentUserArray = currentUserArray.concat(specialSelection);
+}
 
-if 
 
 
 
