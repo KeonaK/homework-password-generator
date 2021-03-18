@@ -51,15 +51,15 @@ if (upperChoice){
   currentUserArray = currentUserArray.concat(upperSelection);
 }
 if (lowerChoice){
-  currentUserArray = currentUserArray.concat(owerSelection);
+  currentUserArray = currentUserArray.concat(lowerSelection);
 }
 if (numberChoice){
   currentUserArray = currentUserArray.concat(numberSelection);
 }
 if (specialChoice){
-  currentUserArray = currentUserArray.concat(specialSelection);
+  currentUserArray = currentUserArray.concat(specialCharSelection);
 }
-
+console.log(currentUserArray);// testing array
 
 
 
