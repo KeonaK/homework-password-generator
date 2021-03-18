@@ -64,10 +64,11 @@ console.log(currentUserArray);// testing array
 
 
 
-// for (let index = 0; index < passwordLength; index++) {
-//   const element = array[index];
+for (let index = 0; index < passwordLength; index++) { //uses the array to randomize teh password
+  finalArray =  currentUserArray[Math.floor(Math.random() * currentUserArray.length)];
   
-// }
+}
+return finalArray;
 }
 
 
