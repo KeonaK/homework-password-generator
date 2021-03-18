@@ -5,10 +5,14 @@ let lowerSelection = ["a", "b", "v", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 let numberSelection = [ 0,1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
 let specialCharSelection = ["," , "!", "#","$", "%", "&" ,"*" ,   "+", "-" , ".", "/", ":", ";" , "<" , "=", "?" , "@","^","_" ,"~"];
-// will need to concat the above list into a new variable 
+// will need to concat the above list 
 // Assignment Code
 
 var generateBtn = document.querySelector("#generate");
+
+let currentUserArray = [""];
+let finalArray = [""];
+
 
 //creating the generate password function
 function generatePassword () {
@@ -23,13 +27,27 @@ if( isNaN(passwordLength) || (passwordLength < 8) || (passwordLength > 128)) {
 
 
 let upperChoice = confirm("Would you like uppercase letters in your password? ");
+if (!upperChoice) {
+  return;
+}
 
 let lowerChoice = confirm("Would you like lowercase letters in your password? ");
+if (!lowerChoice) {
+  return;
+}
 
 let numberChoice = confirm("Would you like numbers in your password? ");
+if (!numberChoice) {
+  return;
+}
 
 let specialChoice = confirm("Would you like special characters in your password? ");
+if (!specialChoice) {
+  return;
+}
 
+
+if 
 
 
 
