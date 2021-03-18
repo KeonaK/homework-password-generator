@@ -6,14 +6,14 @@ let lowerSelection = ["a", "b", "v", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 
 let numberSelection = [ 0,1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
-let specialCharSelection = ["," , "!", "#","$", "%", "&" "*" ,   "+", "-" , ".", "/", ":", ";" , "<" , "=", "?" , "@","^","_" ,"~"]
+let specialCharSelection = ["," , "!", "#","$", "%", "&" ,"*" ,   "+", "-" , ".", "/", ":", ";" , "<" , "=", "?" , "@","^","_" ,"~"];
 // will need to concat the above list into a new variable 
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 //creating the generate password function
-function generatePassword {
+function generatePassword () {
 
   passwordLength = prompt("Please choose a number from 8 to 128 for your password character length");
 
