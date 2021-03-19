@@ -5,6 +5,8 @@ let lowerSelection = ["a", "b", "v", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 let numberSelection = [ 0,1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
 let specialCharSelection = ["," , "!", "#","$", "%", "&" ,"*" ,   "+", "-" , ".", "/", ":", ";" , "<" , "=", "?" , "@","^","_" ,"~"];
+
+let passWord = "";
 // will need to concat the above list 
 // Assignment Code
 
@@ -65,16 +67,18 @@ if (specialChoice){
 
 
 for (let index = 0; index < passwordLength; index++) { //uses the array to randomize the password
-  finalArray =  currentUserArray[Math.floor(Math.random() * currentUserArray.length)];
-  
+  finalArray =  Math.floor(Math.random() * currentUserArray.length);
+  finalArray = currentUserArray[finalArray];
+  passWord = passWord.concat(finalArray);
   console.log(finalArray);
 }
-return finalArray;
-}
+return passWord;
 
+}
 
 
 // Write password to the #password input
+
 function writePassword() {
   var password = generatePassword(); // calls the generatePassword function
   var passwordText = document.querySelector("#password");
