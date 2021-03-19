@@ -6,3 +6,5 @@ The user will be prompted to input information once they press the generate pass
 
 (Github link:)[https://github.com/KeonaK/homework-password-generator]
 (Github Deployment link: )[https://keonak.github.io/homework-password-generator/]
+
+![img](Assets/ScreenShot.png)
