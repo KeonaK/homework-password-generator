@@ -10,8 +10,8 @@ let specialCharSelection = ["," , "!", "#","$", "%", "&" ,"*" ,   "+", "-" , "."
 
 var generateBtn = document.querySelector("#generate");
 
-let currentUserArray = [""];
-let finalArray = [""];
+let currentUserArray = [];
+let finalArray = [];
 
 
 //creating the generate password function
@@ -59,14 +59,15 @@ if (numberChoice){
 if (specialChoice){
   currentUserArray = currentUserArray.concat(specialCharSelection);
 }
-console.log(currentUserArray);// testing array
 
 
 
 
-for (let index = 0; index < passwordLength; index++) { //uses the array to randomize teh password
+
+for (let index = 0; index < passwordLength; index++) { //uses the array to randomize the password
   finalArray =  currentUserArray[Math.floor(Math.random() * currentUserArray.length)];
   
+  console.log(finalArray);
 }
 return finalArray;
 }
