@@ -1,156 +1,64 @@
-let upperSelection = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
+// element selector
+const characterRangeEl = document.getElementById("characterRange");
+const characterNumberEl = document.getElementById("characterNumber");
+const formEl = document.getElementById("generatePasswordForm");
+const uppercaseEl = document.getElementById("uppercase");
+const numbersEl = document.getElementById("numbers");
+const symbolsEl = document.getElementById("symbols");
+const passwordEl = document.getElementById("password");
 
-let lowerSelection = [
-  "a",
-  "b",
-  "v",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
+// char code variables from ascii table
+const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57);
+const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47)
+  .concat(arrayFromLowToHigh(58, 64))
+  .concat(arrayFromLowToHigh(91, 96));
+const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90);
+const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122);
 
-let numberSelection = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// link slider with number input
+characterRangeEl.addEventListener("input", syncSliderInput);
+characterNumberEl.addEventListener("input", syncSliderInput);
 
-let specialCharSelection = [
-  ",",
-  "!",
-  "#",
-  "$",
-  "%",
-  "&",
-  "*",
-  "+",
-  "-",
-  ".",
-  "/",
-  ":",
-  ";",
-  "<",
-  "=",
-  "?",
-  "@",
-  "^",
-  "_",
-  "~",
-];
-
-let passWord = "";
-// will need to concat the above list
-// Assignment Code
-
-var generateBtn = document.querySelector("#generate");
-
-let currentUserArray = [];
-let finalArray = [];
-
-//creating the generate password function
-function generatePassword() {
-  passwordLength = prompt(
-    "Please choose a number from 8 to 128 for your password character length"
-  );
-  //nan = not a number
-  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
-    alert("Try again");
-    return;
-  }
-
-  let upperChoice = confirm(
-    "Would you like uppercase letters in your password? "
-  );
-
-  let lowerChoice = confirm(
-    "Would you like lowercase letters in your password? "
-  );
-
-  let numberChoice = confirm("Would you like numbers in your password? ");
-
-  let specialChoice = confirm(
-    "Would you like special characters in your password? "
-  );
-
-  //concats the individual arrays to make a new array that will have all available charaters in one array
-  if (!upperChoice && !lowerChoic && !numberChoice && !specialChoice) {
-    return;
-  }
-  if (upperChoice) {
-    currentUserArray = currentUserArray.concat(upperSelection);
-  }
-  if (lowerChoice) {
-    currentUserArray = currentUserArray.concat(lowerSelection);
-  }
-  if (numberChoice) {
-    currentUserArray = currentUserArray.concat(numberSelection);
-  }
-  if (specialChoice) {
-    currentUserArray = currentUserArray.concat(specialCharSelection);
-  }
-  console.log(currentUserArray);
-
-  for (let index = 0; index < passwordLength; index++) {
-    //uses the array to randomize the password
-    let randomNumber = Math.floor(Math.random() * currentUserArray.length);
-    let randomChar = currentUserArray[randomNumber];
-
-    passWord = passWord.concat(randomChar);
-  }
-  return passWord;
+function syncSliderInput(event) {
+  const value = event.target.value;
+  characterRangeEl.value = value;
+  characterNumberEl.value = value;
 }
 
-// Write password to the #password input
+// generate password
+formEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const characters = characterNumberEl.value;
+  const uppercase = uppercaseEl.checked; //checked tells us true or false if it is checked
+  const numbers = numbersEl.checked;
+  const symbols = symbolsEl.checked;
+  const password = generatePassword(characters, uppercase, numbers, symbols);
+  passwordEl.textContent = password;
+});
 
-function writePassword() {
-  var password = generatePassword(); // calls the generatePassword function
-  var passwordText = document.querySelector("#password");
+// passing in character codes to get character, number and symbols output
+function generatePassword(characters, uppercase, numbers, symbols) {
+  let charCodes = LOWERCASE_CHAR_CODES;
 
-  passwordText.value = password;
+  if (uppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES);
+  if (numbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES);
+  if (symbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES);
+
+  const passwordCharacters = [];
+  for (let i = 0; i < characters; i++) {
+    const characterCode =
+      charCodes[Math.floor(Math.random() * charCodes.length)];
+    passwordCharacters.push(String.fromCharCode(characterCode));
+  }
+  // turns the array into a string
+  return passwordCharacters.join("");
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generates our array by looping through our high and low variables
+function arrayFromLowToHigh(low, high) {
+  const array = [];
+  for (let i = low; i <= high; i++) {
+    array.push(i);
+  }
+  return array;
+}
