@@ -12,6 +12,10 @@ body,
   padding: 0;
   background: url("./pexels-mati-mango-5952651\ 1.png") ;
   background-size: cover;
+  background-repeat: no-repeat;
+}
+h1{
+  margin: 0;
 }
 
 body {
@@ -26,7 +30,7 @@ body {
 header {
   text-align: center;
   padding: 20px;
-  padding-top: 0px;
+  padding-top: 40px;
   color: white;
 }
 
@@ -112,7 +116,7 @@ button[disabled] {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: 2px solid #c0c7cf;
   border-radius: 6px;
   resize: none;
   overflow: hidden;
