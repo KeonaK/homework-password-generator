@@ -13,26 +13,33 @@ body,
   background: url("./pexels-mati-mango-5952651\ 1.png") ;
   background-size: cover;
   background-repeat: no-repeat;
+  
 }
+  body {
+    font-family: sans-serif;
+    background-color: #f9fbfd;
+  }
+  
+  header {
+    padding: 20px;
+    color: white; 
+  }
+
 h1{
   margin: 0;
 }
-
-body {
-  font-family: sans-serif;
-  background-color: #f9fbfd;
-}
-
 .container {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-header {
-  text-align: center;
-  padding: 20px;
-  padding-top: 40px;
-  color: white;
+.formInput{
+display: grid;
+grid-template-columns: auto auto;
 }
+
 
 .card {
   background-color: hsl(0, 0%, 100%);
@@ -41,9 +48,12 @@ header {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   color: hsl(206, 17%, 28%);
   font-size: 18px;
-  margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .card-header::after {
@@ -58,9 +68,6 @@ header {
   min-height: 100px;
 }
 
-.card-footer {
-  text-align: center;
-}
 
 .card-footer::before {
   content: " ";
@@ -97,9 +104,6 @@ button[disabled] {
   background: #c0c7cf;
 }
 
-.float-right {
-  float: right;
-}
 
 #password {
   -webkit-appearance: none;

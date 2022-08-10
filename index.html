@@ -12,7 +12,7 @@
       <header>
         <h1>Create a strong password with Password Generator</h1>
       </header>
-      <form action="">
+      <form>
         <div class="card">
           <div class="card-header">
             <h2>Generate a Password</h2>
@@ -23,28 +23,32 @@
               your password and strengthen your security.
             </p>
           </div>
-          <div class="card-body">
-            <textarea
-              readonly
-              id="password"
-              placeholder="Your Secure Password"
-              aria-label="Generated Password"
-            ></textarea>
-            <label for="characterNumber">Password length(4-64)</label>
-            <input
-              type="range"
-              min="4"
-              max="64"
-              value="8"
-              id="characterRange"
-            />
-            <input
-              type="number"
-              min="4"
-              max="64"
-              value="8"
-              id="characterNumber"
-            />
+
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+          <div class="formInput">
+            <div>
+              <label for="characterNumber">Password length(4-64)</label>
+              <input
+                type="range"
+                min="4"
+                max="64"
+                value="8"
+                id="characterRange"
+              />
+              <input
+                type="number"
+                min="4"
+                max="64"
+                value="8"
+                id="characterNumber"
+              />
+            </div>
+            <div></div>
             <label for="">Uppercase</label>
             <input type="checkbox" id="uppercase" />
             <label for="">Numbers</label>
@@ -52,6 +56,7 @@
             <label for="">Symbols</label>
             <input type="checkbox" id="symbols" />
           </div>
+
           <div class="card-footer">
             <button type="submit" id="generate" class="btn">
               Generate Password
